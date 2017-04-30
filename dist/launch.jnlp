@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>Cinema</title>
+        <vendor>mekhti</vendor>
+        <homepage href=""/>
+        <description>Cinema</description>
+        <description kind="short">Cinema</description>
+    </information>
+    <update check="always"/>
+    <resources>
+        <j2se version="1.7+"/>
+        <jar href="Cinema.jar" main="true"/>
+    <jar href="lib/mysql-connector-java-5.1.23-bin.jar"/>
+<jar href="lib/javaee-api-7.0.jar"/>
+<jar href="lib/com.sun.mail_1.4.2.jar"/>
+</resources>
+    <application-desc main-class="LoginUye">
+    </application-desc>
+</jnlp>
