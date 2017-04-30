@@ -1,4 +1,7 @@
-
+/**
+ * 
+ * @author mekhti 
+ */
 
 public class MainPage extends javax.swing.JFrame {
 
@@ -38,9 +41,7 @@ public class MainPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
 
         /* Create and display the form */

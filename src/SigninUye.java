@@ -160,9 +160,6 @@ public class SigninUye extends javax.swing.JFrame {
         mainPage.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
