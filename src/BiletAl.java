@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class BiletAl extends javax.swing.JFrame {
 
     String film,seans;
-    int filmId,seansId,salonNo;
+    int filmId,seansId,gosterimId;
     Connection connection;
     Statement statement;
     ResultSet result;
@@ -211,12 +211,10 @@ public class BiletAl extends javax.swing.JFrame {
             statement = connection.createStatement();
             result = statement.executeQuery(str);
             while(result.next()){
-                salonNo =result.getInt("SalonNo");
+                gosterimId =result.getInt("GosterimId");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(BiletAl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Salon salon = new Salon();
+        } catch (SQLException ex) { }
+        Salon salon = new Salon(gosterimId);
         salon.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
