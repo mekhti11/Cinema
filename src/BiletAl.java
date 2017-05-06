@@ -216,10 +216,9 @@ public class BiletAl extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(BiletAl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(salonNo);
-        //Salon salon = new Salon();
-        //salon.setVisible(true);
-        //this.setVisible(false);
+        Salon salon = new Salon();
+        salon.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
