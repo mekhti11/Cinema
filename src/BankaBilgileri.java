@@ -128,8 +128,6 @@ public class BankaBilgileri extends javax.swing.JFrame {
 
         jLabel13.setText("   X");
 
-        biletFiyatiLabel.setText("20,00");
-
         jLabel15.setText("   =");
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
