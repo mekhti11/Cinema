@@ -14,10 +14,12 @@ import javax.swing.JButton;
 
 public class Salon extends javax.swing.JFrame {
     
+    JButton[] buttons = new JButton[46];
     private int gosterimId,biletSayisi=0;
     Connection connection;
     Statement statement;
     ResultSet result;
+    private int[] koltukid = new int[45];
 
     public Salon(int gosterimId) {
         this.gosterimId = gosterimId;
@@ -77,7 +79,6 @@ public class Salon extends javax.swing.JFrame {
         buton45 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         biletAlButon = new javax.swing.JButton();
-        JButton[] buttons = new JButton[46];
         buttons[1] = buton1;
         buttons[2] = buton2;        
         buttons[3] = buton3;
@@ -154,273 +155,273 @@ public class Salon extends javax.swing.JFrame {
             }
         });
 
-        buton1.addActionListener(new java.awt.event.ActionListener() {
+       buton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton1ActionPerformed(evt);
             }
         });
 
         buton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton2ActionPerformed(evt);
             }
         });
 
         buton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton3ActionPerformed(evt);
             }
         });
 
         buton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton4ActionPerformed(evt);
             }
         });
 
         buton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton6ActionPerformed(evt);
             }
         });
 
         buton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton7ActionPerformed(evt);
             }
         });
 
         buton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton9ActionPerformed(evt);
             }
         });
 
-        buton10.addActionListener(new java.awt.event.ActionListener() {
+        buton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton5ActionPerformed(evt);
             }
         });
 
-        buton11.addActionListener(new java.awt.event.ActionListener() {
+        buton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton8ActionPerformed(evt);
             }
         });
 
         buton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton19ActionPerformed(evt);
             }
         });
 
         buton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton20ActionPerformed(evt);
+            }
+        });
+
+        buton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton10ActionPerformed(evt);
+            }
+        });
+
+        buton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton12ActionPerformed(evt);
+            }
+        });
+
+        buton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton11ActionPerformed(evt);
+            }
+        });
+
+        buton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton14ActionPerformed(evt);
+            }
+        });
+
+        buton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton13ActionPerformed(evt);
+            }
+        });
+
+        buton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton15ActionPerformed(evt);
+            }
+        });
+
+        buton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton16ActionPerformed(evt);
+            }
+        });
+
+        buton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton18ActionPerformed(evt);
+            }
+        });
+
+        buton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton17ActionPerformed(evt);
             }
         });
 
         buton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton21ActionPerformed(evt);
             }
         });
 
         buton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton22ActionPerformed(evt);
             }
         });
 
         buton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton23ActionPerformed(evt);
             }
         });
 
         buton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton25ActionPerformed(evt);
+            }
+        });
+
+        buton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton24ActionPerformed(evt);
             }
         });
 
         buton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton26ActionPerformed(evt);
             }
         });
 
         buton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton27ActionPerformed(evt);
             }
         });
 
         buton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton32ActionPerformed(evt);
             }
         });
 
         buton35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton36.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton35ActionPerformed(evt);
             }
         });
 
         buton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton37ActionPerformed(evt);
             }
         });
 
         buton39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton39ActionPerformed(evt);
             }
         });
 
-        buton40.addActionListener(new java.awt.event.ActionListener() {
+        buton38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton38ActionPerformed(evt);
             }
         });
 
         buton41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton41ActionPerformed(evt);
+            }
+        });
+
+        buton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton40ActionPerformed(evt);
             }
         });
 
         buton42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton42ActionPerformed(evt);
             }
         });
 
         buton43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
-            }
-        });
-
-        buton44.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton43ActionPerformed(evt);
             }
         });
 
         buton45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonActionPerformed(evt);
+                buton45ActionPerformed(evt);
+            }
+        });
+
+        buton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton44ActionPerformed(evt);
+            }
+        });
+
+        buton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton28ActionPerformed(evt);
+            }
+        });
+
+        buton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton29ActionPerformed(evt);
+            }
+        });
+
+        buton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton30ActionPerformed(evt);
+            }
+        });
+
+        buton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton31ActionPerformed(evt);
+            }
+        });
+
+        buton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton33ActionPerformed(evt);
+            }
+        });
+
+        buton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton34ActionPerformed(evt);
+            }
+        });
+
+        buton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton36ActionPerformed(evt);
             }
         });
 
@@ -638,15 +639,240 @@ public class Salon extends javax.swing.JFrame {
             buton.setBackground(Color.RED);
             biletSayisi--;
         }
+        
     }//GEN-LAST:event_buton2ActionPerformed
 
-    private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton2ActionPerformed
+    private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {                                       
         System.out.println(biletSayisi);
-        BankaBilgileri bb = new BankaBilgileri(biletSayisi);
+        BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid);
         this.setVisible(false);
         bb.setVisible(true);
     }
 
+    private void buton1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[1]=1;
+    }                                      
+
+    private void buton2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[2]=1;
+    }                                      
+
+    private void buton3ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[3]=1;
+    }                                      
+
+    private void buton4ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[4]=1;
+    }                                      
+
+    private void buton6ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[6]=1;
+    }                                      
+
+    private void buton7ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[7]=1;
+    }                                      
+
+    private void buton9ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[9]=1;
+    }                                      
+
+    private void buton5ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[5]=1;
+    }                                      
+
+    private void buton8ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        butonActionPerformed(evt);
+        koltukid[8]=1;
+    }                                      
+
+    private void buton19ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[19]=1;
+    }                                       
+
+    private void buton20ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[20]=1;
+    }                                       
+
+    private void buton10ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[10]=1;
+    }                                       
+
+    private void buton12ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[12]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton11ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[11]=1;
+    }                                       
+
+    private void buton14ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[14]=1;
+    }                                       
+
+    private void buton13ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[13]=1;
+    }                                       
+
+    private void buton15ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[15]=1;
+    }                                       
+
+    private void buton16ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[16]=1;
+    }                                       
+
+    private void buton18ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[18]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton17ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[17]=1;
+    }                                       
+
+    private void buton21ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[21]=1;
+    }                                       
+
+    private void buton22ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[22]=1;
+    }                                       
+
+    private void buton23ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[23]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton25ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[25]=1;
+    }                                       
+
+    private void buton24ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[24]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton26ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[26]=1;
+    }                                       
+
+    private void buton27ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[27]=1;
+    }                                       
+
+    private void buton32ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[32]=1;
+    }                                       
+
+    private void buton35ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[35]=1;
+    }                                       
+
+    private void buton37ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[37]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton39ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        koltukid[39]=1;
+        butonActionPerformed(evt);
+    }                                       
+
+    private void buton38ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[38]=1;
+    }                                       
+
+    private void buton41ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[41]=1;
+    }                                       
+
+    private void buton40ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[40]=1;
+    }                                       
+
+    private void buton42ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[42]=1;
+    }                                       
+
+    private void buton43ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[43]=1;
+    }                                       
+
+    private void buton45ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[45]=1;
+    }                                       
+
+    private void buton44ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[44]=1;
+    }                                       
+
+    private void buton28ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[28]=1;
+    }                                       
+
+    private void buton29ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[29]=1;
+    }                                       
+
+    private void buton30ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[30]=1;
+    }                                       
+
+    private void buton31ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[31]=1;
+    }                                       
+
+    private void buton33ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[33]=1;
+    }                                       
+
+    private void buton34ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[34]=1;
+    }                                       
+
+    private void buton36ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        butonActionPerformed(evt);
+        koltukid[36]=1;
+    }
 
     /**
      * @param args the command line arguments

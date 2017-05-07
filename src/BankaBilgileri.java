@@ -5,9 +5,10 @@
 
 public class BankaBilgileri extends javax.swing.JFrame {
     private int biletSayisi;
+    private static int[] koltukid = new int[45];
 
-
-    public BankaBilgileri(int biletSayisi) {
+    public BankaBilgileri(int biletSayisi,int[] koltukid) {
+        this.koltukid = koltukid;
         this.biletSayisi = biletSayisi;
         initComponents();
     }
@@ -31,7 +32,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        biletAl = new javax.swing.JButton();
         biletSayisiLabel = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         biletFiyatiLabel = new javax.swing.JLabel();
@@ -55,12 +56,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jLabel4.setText("Kredi Kartı Numaran");
 
         jTextField1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
+        
         jLabel5.setBackground(java.awt.Color.orange);
         jLabel5.setForeground(new java.awt.Color(255, 19, 0));
         jLabel5.setText("*");
@@ -89,22 +85,28 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel11.setText("Ödenecek Tutar :");
 
-        jButton1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jButton1.setText("Bilet Al");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        biletAl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        biletAl.setText("Bilet Al");
+        biletAl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                biletAlActionPerformed(evt);
             }
         });
 
         jLabel13.setText("   X");
 
-        biletFiyatiLabel.setText("20,00");
+        biletFiyatiLabel.setText("19,50");
 
         jLabel15.setText("   =");
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel16.setText("₺");
+
+        jTextField1.setColumns(16);
+        jTextField2.setColumns(3);
+        biletSayisiLabel.setText(Integer.toString(biletSayisi));
+        double fiyat = biletSayisi * 19.5;
+        toplamFiyatLabel.setText(Double.toString(fiyat));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,7 +159,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(biletAl, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)))
                 .addContainerGap())
         );
@@ -195,7 +197,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(biletFiyatiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(biletAl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(biletSayisiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(toplamFiyatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,14 +208,9 @@ public class BankaBilgileri extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biletAlActionPerformed
+        butonActionPerformed(evt);
+    }//GEN-LAST:event_biletAlActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,7 +218,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BankaBilgileri(1).setVisible(true);
+                new BankaBilgileri(1,koltukid).setVisible(true);
             }
         });
     }
@@ -230,7 +227,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ayComboBox;
     private javax.swing.JLabel biletFiyatiLabel;
     private javax.swing.JLabel biletSayisiLabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton biletAl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
