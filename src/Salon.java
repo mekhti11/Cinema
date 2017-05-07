@@ -19,11 +19,14 @@ public class Salon extends javax.swing.JFrame {
     Connection connection;
     Statement statement;
     ResultSet result;
-    private int[] koltukid = new int[45];
+    private int[] koltukid = new int[46];
 
     public Salon(int gosterimId) {
+        for(int i=1;i<46;i++)
+            koltukid[i]=0;
         this.gosterimId = gosterimId;
         initComponents();
+        System.out.println(this.gosterimId);
     }
 
 
@@ -644,7 +647,7 @@ public class Salon extends javax.swing.JFrame {
 
     private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {                                       
         System.out.println(biletSayisi);
-        BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid);
+        BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid,gosterimId);
         this.setVisible(false);
         bb.setVisible(true);
     }

@@ -1,13 +1,34 @@
+
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+
+import javax.swing.text.PlainDocument;
+
 /**
  *
  * @author Mekhti
  */
 
 public class BankaBilgileri extends javax.swing.JFrame {
-    private int biletSayisi;
-    private static int[] koltukid = new int[45];
-
-    public BankaBilgileri(int biletSayisi,int[] koltukid) {
+    private static int biletSayisi,gosterimId;
+    private static int[] koltukid = new int[46];
+    boolean b=false;
+    Connection connection;
+    Statement statement;
+    ResultSet result;
+    public BankaBilgileri(int biletSayisi,int[] koltukid,int gosterimId) {
+        this.gosterimId = gosterimId;
         this.koltukid = koltukid;
         this.biletSayisi = biletSayisi;
         initComponents();
@@ -32,7 +53,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        biletAl = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         biletSayisiLabel = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         biletFiyatiLabel = new javax.swing.JLabel();
@@ -56,7 +77,12 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jLabel4.setText("Kredi Kartı Numaran");
 
         jTextField1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         jLabel5.setBackground(java.awt.Color.orange);
         jLabel5.setForeground(new java.awt.Color(255, 19, 0));
         jLabel5.setText("*");
@@ -82,12 +108,19 @@ public class BankaBilgileri extends javax.swing.JFrame {
         yilComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seçiniz", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
         yilComboBox.setLightWeightPopupEnabled(false);
 
+        jTextField2.setColumns(3);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel11.setText("Ödenecek Tutar :");
 
-        biletAl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        biletAl.setText("Bilet Al");
-        biletAl.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jButton1.setText("Bilet Al");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 biletAlActionPerformed(evt);
             }
@@ -95,18 +128,12 @@ public class BankaBilgileri extends javax.swing.JFrame {
 
         jLabel13.setText("   X");
 
-        biletFiyatiLabel.setText("19,50");
+        biletFiyatiLabel.setText("20,00");
 
         jLabel15.setText("   =");
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel16.setText("₺");
-
-        jTextField1.setColumns(16);
-        jTextField2.setColumns(3);
-        biletSayisiLabel.setText(Integer.toString(biletSayisi));
-        double fiyat = biletSayisi * 19.5;
-        toplamFiyatLabel.setText(Double.toString(fiyat));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,8 +153,8 @@ public class BankaBilgileri extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
@@ -159,7 +186,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(biletAl, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)))
                 .addContainerGap())
         );
@@ -197,7 +224,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(biletFiyatiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(biletAl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(biletSayisiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(toplamFiyatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,27 +234,115 @@ public class BankaBilgileri extends javax.swing.JFrame {
         );
 
         pack();
+        biletFiyatiLabel.setText("19,50");
+
+        biletSayisiLabel.setText(Integer.toString(biletSayisi));
+        double d = 19.5*biletSayisi;
+        toplamFiyatLabel.setText(Double.toString(d));
+
+        jTextField1.setDocument(new JTextFieldLimit(16));
+        jTextField2.setDocument(new JTextFieldLimit(3));
     }// </editor-fold>//GEN-END:initComponents
     private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biletAlActionPerformed
-        butonActionPerformed(evt);
+        jTextField1ActionPerformed(evt);
+        jTextField2ActionPerformed(evt);
+        if(b)
+            return;
+        String yil =(String) yilComboBox.getSelectedItem();
+        String ay =(String) ayComboBox.getSelectedItem();
+        if(ay.compareTo("Seçiniz") ==0 ){
+            JOptionPane.showMessageDialog(null, "Lutfen Kart Son Kullanma tarihi seciniz");
+            return;
+        }
+        else if(yil.compareTo("Seçiniz")==0){
+            JOptionPane.showMessageDialog(null,"Lutfen Kart Son Kullanma tarihi seciniz");
+            return;
+        }
+        
+        connection = ConnectDB();
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException ex) {System.out.println("hata1");}
+        for(int i=1;i<46;i++){
+            if(koltukid[i] == 1){
+                int id = (gosterimId - 1 )*45+i ;
+                String sql = "UPDATE `Koltuk` SET `value` = "+1+" WHERE `koltukId` = "+id;
+                System.out.println(sql);
+                try {
+                    statement.executeUpdate(sql);
+                } catch (SQLException ex) { System.out.println("hata2");}
+            }
+        }
+        this.setVisible(false);
     }//GEN-LAST:event_biletAlActionPerformed
 
+    public static Connection ConnectDB(){
+        try{
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/Cinema","root","mekhti");
+        //JOptionPane.showMessageDialog(null, "Connected to Database");
+        return connect;
+
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(null,e);
+        return null;
+        }
+    }
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        String s = jTextField2.getText();
+        try{
+            int x = Integer.parseInt(s);
+            b = false;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "CVC sadece rakamlardan olusur");
+            jTextField2.setText("");
+            b=true;
+        }
+    }                                           
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        String s = jTextField1.getText();
+        try{
+             Double d = Double.parseDouble(s);
+             b = false;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Hesap Numarasi sadece rakamlardan olusur");
+            jTextField1.setText("");  
+            b = true;
+        }
+    }//GEN-LAST:event_jTextField2ActionPerformed
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BankaBilgileri(1,koltukid).setVisible(true);
+                new BankaBilgileri(1,koltukid,gosterimId).setVisible(true);
             }
         });
     }
 
+    public class JTextFieldLimit extends PlainDocument {
+        private int limit;
+
+        JTextFieldLimit(int limit) {
+        super();
+        this.limit = limit;
+        }
+
+        public void insertString( int offset, String  str, AttributeSet attr ) throws BadLocationException {
+            if (str == null) return;
+
+            if ((getLength() + str.length()) <= limit) {
+            super.insertString(offset, str, attr);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ayComboBox;
     private javax.swing.JLabel biletFiyatiLabel;
     private javax.swing.JLabel biletSayisiLabel;
-    private javax.swing.JButton biletAl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
