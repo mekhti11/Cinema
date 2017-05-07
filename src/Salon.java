@@ -148,6 +148,12 @@ public class Salon extends javax.swing.JFrame {
             }
         }catch(Exception e){System.out.println(e);}
         
+        biletAlButon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                biletAlActionPerformed(evt);
+            }
+        });
+
         buton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butonActionPerformed(evt);
@@ -633,6 +639,13 @@ public class Salon extends javax.swing.JFrame {
             biletSayisi--;
         }
     }//GEN-LAST:event_buton2ActionPerformed
+
+    private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton2ActionPerformed
+        System.out.println(biletSayisi);
+        BankaBilgileri bb = new BankaBilgileri(biletSayisi);
+        this.setVisible(false);
+        bb.setVisible(true);
+    }
 
 
     /**
