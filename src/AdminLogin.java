@@ -16,6 +16,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
 
     public AdminLogin() {
+        this.setTitle("Admin Login Page");
         initComponents();
     }
 

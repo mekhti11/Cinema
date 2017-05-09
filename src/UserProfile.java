@@ -20,6 +20,7 @@ public class UserProfile extends javax.swing.JFrame {
 
 
     public UserProfile(int id) {
+        setTitle("Profile");
         this.id = id;
         initComponents();
         set();

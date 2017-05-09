@@ -11,6 +11,7 @@ public class MainPage extends javax.swing.JFrame {
      * Creates new form MainPage
      */
     public MainPage() {
+        this.setTitle("Ana Sayfa");
         initComponents();
     }
 

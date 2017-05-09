@@ -22,6 +22,7 @@ public class BiletAl extends javax.swing.JFrame {
      * Creates new form BiletAl
      */
     public BiletAl(int id) {
+        this.setTitle("Buying ticket Page");
         this.id = id;
         initComponents();
     }

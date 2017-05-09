@@ -16,6 +16,7 @@ public class SigninUye extends javax.swing.JFrame {
     Statement statement;
     String sql ;
     public SigninUye() {
+        setTitle("User Sign in Page");
         initComponents();
     }
 

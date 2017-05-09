@@ -28,6 +28,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
     Statement statement;
     ResultSet result;
     public BankaBilgileri(int biletSayisi,int[] koltukid,int gosterimId,int id) {
+        this.setTitle("Paying Page");
         this.userid = id;
         this.gosterimId = gosterimId;
         this.koltukid = koltukid;

@@ -20,6 +20,7 @@ public class LoginUye extends javax.swing.JFrame {
     MainPage mainPage;
     
     public LoginUye() {
+        this.setTitle("User Login Page");
         initComponents();
     }
 

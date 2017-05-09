@@ -12,6 +12,7 @@ public class CalisanLogin extends javax.swing.JFrame {
     PreparedStatement state ;
     ResultSet result ;
     public CalisanLogin() {
+        this.setTitle("Staff Login Page");
         initComponents();
     }
 
