@@ -866,14 +866,6 @@ public class Salon extends javax.swing.JFrame {
 }
 
 
-/**
- * 
- * 
- * @author mekhti
- */
-
-
-
 import java.sql.Connection;
 import java.sql.*;
 import java.util.Random;
@@ -882,6 +874,7 @@ import javax.swing.*;
 public class KoltukOlustur{
   public static Connection connection;
   public static Statement statement; 
+  public static ResultSet result;
 
     public static Connection ConnectDB(){
     try{
@@ -902,15 +895,27 @@ public class KoltukOlustur{
     connection = ConnectDB();
     Random rand = new Random();
     String sql;
-    int rndm;
+    int rndm,rndm2;
+    int sayi=0;
     try{
+      sql = "SELECT COUNT(*) FROM `Users` WHERE "+1;
+      statement = connection.createStatement();
+      result = statement.executeQuery(sql);
+      if(result.next())
+        sayi =(Integer) result.getInt("COUNT(*)"); 
+      else
+        System.out.print("else");
       for(int i=1;i<=21;i++)
         for(int j=1;j<=5;j++)
           for(int k=1;k<=9;k++){
-            rndm =rand.nextInt(3);
-              System.out.println(rndm);
-            sql = "INSERT INTO `Koltuk`(`GosterimId`, `row`, `sutun`, `value`) VALUES ("+i+","+j+","+k+","+rndm+")";
-            statement = connection.createStatement();   
+            rndm =rand.nextInt(2);
+            rndm2 = rand.nextInt(sayi)+1;
+            System.out.println(rndm);
+            if(rndm == 1)            
+              sql = "INSERT INTO `Koltuk`(`GosterimId`, `row`, `sutun`, `value`,`userId`) VALUES ("+i+","+j+","+k+","+rndm+","+rndm2+")";
+            else
+              sql = "INSERT INTO `Koltuk`(`GosterimId`, `row`, `sutun`, `value`) VALUES ("+i+","+j+","+k+","+rndm+")";
+              
             statement.execute(sql);
           }       
       
@@ -919,8 +924,6 @@ public class KoltukOlustur{
     }
 
   }
-  
-
 }
 
 
