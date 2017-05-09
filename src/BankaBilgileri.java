@@ -21,13 +21,14 @@ import javax.swing.text.PlainDocument;
  */
 
 public class BankaBilgileri extends javax.swing.JFrame {
-    private static int biletSayisi,gosterimId;
+    private static int biletSayisi,gosterimId,userid;
     private static int[] koltukid = new int[46];
     boolean b=false;
     Connection connection;
     Statement statement;
     ResultSet result;
-    public BankaBilgileri(int biletSayisi,int[] koltukid,int gosterimId) {
+    public BankaBilgileri(int biletSayisi,int[] koltukid,int gosterimId,int id) {
+        this.userid = id;
         this.gosterimId = gosterimId;
         this.koltukid = koltukid;
         this.biletSayisi = biletSayisi;
@@ -264,10 +265,11 @@ public class BankaBilgileri extends javax.swing.JFrame {
         for(int i=1;i<46;i++){
             if(koltukid[i] == 1){
                 int id = (gosterimId - 1 )*45+i ;
-                String sql = "UPDATE `Koltuk` SET `value` = "+1+" WHERE `koltukId` = "+id;
+                String sql = "UPDATE `Koltuk` SET `value` = "+1+" , `userId` = "+userid+" WHERE `koltukId` = "+id;
                 System.out.println(sql);
                 try {
                     statement.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null,"Bilet(ler) alımı başarılı!!!");
                 } catch (SQLException ex) { System.out.println("hata2");}
             }
         }
@@ -309,16 +311,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
             b = true;
         }
     }//GEN-LAST:event_jTextField2ActionPerformed
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BankaBilgileri(1,koltukid,gosterimId).setVisible(true);
-            }
-        });
-    }
+
 
     public class JTextFieldLimit extends PlainDocument {
         private int limit;

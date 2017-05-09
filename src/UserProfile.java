@@ -1,9 +1,12 @@
 import java.awt.Image;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -31,8 +34,7 @@ public class UserProfile extends javax.swing.JFrame {
         takvimButon = new javax.swing.JButton();
         biletAlButon = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
-        ImageIcon icon = new ImageIcon("/home/mekhti/NetBeansProjects/Cinema/images/users1.png");
-        iconLabel.setIcon(icon);
+        puanLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,26 +57,33 @@ public class UserProfile extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(biletAlButon, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(takvimButon, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(puanLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(212, 212, 212)))
                 .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(biletAlButon, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(takvimButon, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(puanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,6 +98,8 @@ public class UserProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void set(){
+        ImageIcon icon = new ImageIcon("/home/mekhti/NetBeansProjects/Cinema/images/users1.png");
+        iconLabel.setIcon(icon);
         try{
             connection = ConnectDB();
             statement = connection.createStatement();
@@ -110,11 +121,12 @@ public class UserProfile extends javax.swing.JFrame {
     }
 
     private void biletAlButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biletAlButonActionPerformed
-        // TODO add your handling code here:
+        BiletAl ba = new BiletAl(id);
+        ba.setVisible(true);
     }//GEN-LAST:event_biletAlButonActionPerformed
 
     private void takvimButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takvimButonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Daha Eklenmedi");
     }//GEN-LAST:event_takvimButonActionPerformed
 
 
@@ -132,23 +144,13 @@ public class UserProfile extends javax.swing.JFrame {
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UserProfile().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton biletAlButon;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel puanLabel;
     private javax.swing.JButton takvimButon;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables

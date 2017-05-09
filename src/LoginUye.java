@@ -12,7 +12,7 @@ import java.util.*;
  * @author mekhti
  */
 public class LoginUye extends javax.swing.JFrame {
-
+    private int id;
     Connection connection;
     Statement statement;
     PreparedStatement state ;
@@ -148,6 +148,13 @@ public class LoginUye extends javax.swing.JFrame {
             
             if(result.next()){
                 JOptionPane.showMessageDialog(null, "Logged in Succesfully");
+                sql = "SELECT * FROM `Users` WHERE `username` = '" + usernameField.getText()+"'";
+                result = statement.executeQuery(sql);
+                if(result.next())
+                    id = (Integer) result.getInt("id");
+                UserProfile up = new UserProfile(id);
+                up.setVisible(true);
+                this.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Invalid Username or password","Acces Denied" , JOptionPane.ERROR_MESSAGE );
@@ -179,15 +186,6 @@ public class LoginUye extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
-
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginUye().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeButton;

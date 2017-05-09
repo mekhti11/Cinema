@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * @author mekhti
  */
 public class BiletAl extends javax.swing.JFrame {
-
+    private int id;
     String film,seans;
     int filmId,seansId,gosterimId;
     Connection connection;
@@ -21,7 +21,8 @@ public class BiletAl extends javax.swing.JFrame {
     /**
      * Creates new form BiletAl
      */
-    public BiletAl() {
+    public BiletAl(int id) {
+        this.id = id;
         initComponents();
     }
 
@@ -257,7 +258,7 @@ public class BiletAl extends javax.swing.JFrame {
                 gosterimId =result.getInt("GosterimId");
             }
         } catch (SQLException ex) { }
-        Salon salon = new Salon(gosterimId);
+        Salon salon = new Salon(gosterimId,id);
         salon.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -265,14 +266,6 @@ public class BiletAl extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BiletAl().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> SeansSecBox;

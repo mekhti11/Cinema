@@ -15,13 +15,14 @@ import javax.swing.JButton;
 public class Salon extends javax.swing.JFrame {
     
     JButton[] buttons = new JButton[46];
-    private int gosterimId,biletSayisi=0;
+    private int gosterimId,biletSayisi=0,id;
     Connection connection;
     Statement statement;
     ResultSet result;
     private int[] koltukid = new int[46];
 
-    public Salon(int gosterimId) {
+    public Salon(int gosterimId,int id) {
+        this.id = id;
         for(int i=1;i<46;i++)
             koltukid[i]=0;
         this.gosterimId = gosterimId;
@@ -647,7 +648,7 @@ public class Salon extends javax.swing.JFrame {
 
     private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {                                       
         System.out.println(biletSayisi);
-        BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid,gosterimId);
+        BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid,gosterimId,id);
         this.setVisible(false);
         bb.setVisible(true);
     }
@@ -880,15 +881,7 @@ public class Salon extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Salon(2).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton biletAlButon;
