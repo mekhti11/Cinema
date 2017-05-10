@@ -270,10 +270,10 @@ public class BankaBilgileri extends javax.swing.JFrame {
                 System.out.println(sql);
                 try {
                     statement.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null,"Bilet(ler) alımı başarılı!!!");
                 } catch (SQLException ex) { System.out.println("hata2");}
             }
         }
+        JOptionPane.showMessageDialog(null,"Bilet alımı başarılı!!!");
         this.setVisible(false);
     }//GEN-LAST:event_biletAlActionPerformed
 

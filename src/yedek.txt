@@ -1200,3 +1200,24 @@ public class BiletAl extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     // End of variables declaration                   
 }
+
+
+        try{
+            String sql = "SELECT * FROM `Koltuk` WHERE `GosterimId` = " + gosterimId;
+            //System.out.println(sql);
+            ConnectMySql conn = new ConnectMySql();
+            connection = conn.ConnectDB();
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            int i=1;
+            while(result.next()){
+                int value = (int) result.getInt("value");
+                if(value ==  0){
+                    buttons[i].setBackground(Color.RED);
+                }else{
+                    buttons[i].setBackground(Color.BLACK);
+                    buttons[i].setEnabled(false);
+                }
+                i++;
+            }
+        }catch(Exception e){System.out.println(e);}

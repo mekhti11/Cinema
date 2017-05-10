@@ -39,7 +39,7 @@ public class UserProfile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        takvimButon.setText("Takvim Görüntüle");
+        takvimButon.setText("Bilet(ler)imi Görüntüle");
         takvimButon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 takvimButonActionPerformed(evt);

@@ -259,6 +259,10 @@ public class BiletAl extends javax.swing.JFrame {
                 gosterimId =result.getInt("GosterimId");
             }
         } catch (SQLException ex) { }
+        if(gosterimId == 0){
+            JOptionPane.showMessageDialog(null,"Lutfen film veya seans secin");
+            return;
+        }
         Salon salon = new Salon(gosterimId,id);
         salon.setVisible(true);
         this.setVisible(false);

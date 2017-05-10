@@ -14,7 +14,9 @@ public class SigninUye extends javax.swing.JFrame {
     
     Connection connection;
     Statement statement;
-    String sql ;
+    ResultSet result;
+    int id;
+    String sql,username ;
     public SigninUye() {
         setTitle("User Sign in Page");
         initComponents();
@@ -136,14 +138,23 @@ public class SigninUye extends javax.swing.JFrame {
     private void signinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinButtonActionPerformed
         ConnectMySql conn = new ConnectMySql();
         connection = conn.ConnectDB();
+        
+        
         if( !(nameField.getText().isEmpty()) && !(surnameField.getText().isEmpty()) && !(emailField.getText().isEmpty()) && !(usernameField.getText().isEmpty()) && !(passwordField.getText().isEmpty())){
             try {
-                     sql = "INSERT INTO `Users`(`Name`, `Surname`, `E-mail`, `username`, `password`) VALUES ("+"'"+nameField.getText()+"'"+","+
+                sql = "INSERT INTO `Users`(`Name`, `Surname`, `E-mail`, `username`, `password`) VALUES ("+"'"+nameField.getText()+"'"+","+
                         "'"+surnameField.getText()+"'"+","+"'"+emailField.getText()+"'"+","+"'"+usernameField.getText()+"'"+","+ "'"+passwordField.getText()+"'"+")";
                 statement = connection.createStatement();   
                 boolean a = statement.execute(sql);
                 JOptionPane.showMessageDialog(null, "Signed in Succesfully");
                 
+                sql = "SELECT * FROM `Users` WHERE `username` = '" +usernameField.getText()+"'";
+                result = statement.executeQuery(sql);
+                if(result.next())
+                    id = (Integer) result.getInt("id");
+                UserProfile up = new UserProfile(id);
+                up.setVisible(true);
+                this.setVisible(false);
                 
             } catch (SQLException ex) {
                  JOptionPane.showMessageDialog(null, "This username is already taken , please choose another one");                     
@@ -155,6 +166,8 @@ public class SigninUye extends javax.swing.JFrame {
 
     }//GEN-LAST:event_signinButtonActionPerformed
 
+
+    
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         MainPage mainPage = new MainPage();
         this.setVisible(false);
