@@ -174,14 +174,6 @@ public class SigninUye extends javax.swing.JFrame {
         mainPage.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SigninUye().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailField;

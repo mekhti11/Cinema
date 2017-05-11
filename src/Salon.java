@@ -89,7 +89,7 @@ public class Salon extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-         JButton[] buttons = new JButton[46];
+        JButton[] buttons = new JButton[46];
         buttons[1] = buton1;
         buttons[2] = buton2;        
         buttons[3] = buton3;
@@ -164,6 +164,17 @@ public class Salon extends javax.swing.JFrame {
                 i++;
             }
         }catch(Exception e){System.out.println(e);}
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel1.setText("                                    PERDE");
+
+        buton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton1ActionPerformed(evt);
+            }
+        });
 
         buton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -711,17 +722,17 @@ public class Salon extends javax.swing.JFrame {
         bb.setVisible(true);
     }//GEN-LAST:event_biletAlButonActionPerformed
 
+    private void buton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton1ActionPerformed
+        butonActionPerformed(evt);
+        koltukid[1]=1;
+    }//GEN-LAST:event_buton1ActionPerformed
+
     private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {                                       
         System.out.println(biletSayisi);
         BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid,gosterimId,id);
         this.setVisible(false);
         bb.setVisible(true);
-    }
-
-    private void buton1ActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        butonActionPerformed(evt);
-        koltukid[1]=1;
-    }                                      
+    }                                    
 
     private void buton2ActionPerformed(java.awt.event.ActionEvent evt) {                                       
         butonActionPerformed(evt);

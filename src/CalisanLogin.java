@@ -11,6 +11,9 @@ public class CalisanLogin extends javax.swing.JFrame {
     Statement statement;
     PreparedStatement state ;
     ResultSet result ;
+    
+    private int id;
+    
     public CalisanLogin() {
         this.setTitle("Staff Login Page");
         initComponents();
@@ -138,6 +141,13 @@ public class CalisanLogin extends javax.swing.JFrame {
 
             if(result.next()){
                 JOptionPane.showMessageDialog(null, "Logged in Succesfully");
+                sql = "SELECT * FROM `Calisan` WHERE `username` = '" + usernameField.getText()+"'";
+                result = statement.executeQuery(sql);
+                if(result.next())
+                    id = (Integer) result.getInt("id");
+                CalisanPage up = new CalisanPage(id);
+                up.setVisible(true);
+                this.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Invalid Username or password","Acces Denied" , JOptionPane.ERROR_MESSAGE );
@@ -145,6 +155,7 @@ public class CalisanLogin extends javax.swing.JFrame {
         }catch(Exception e){
             System.out.println(e);
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
