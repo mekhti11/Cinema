@@ -154,7 +154,8 @@ public class CalisanPage extends javax.swing.JFrame {
         if(result.next())
             count = result.getInt("COUNT(*)");
         for(int i=1;i<=count;i++){
-            sql = "SELECT * FROM `Seans` WHERE `id` = "+i;result = statement.executeQuery(sql);
+            sql = "SELECT * FROM `Seans` WHERE `id` = "+i;
+            result = statement.executeQuery(sql);
             if(result.next()){
                 String s = result.getString("time");
                 seansName.addElement(s);
@@ -222,7 +223,10 @@ public class CalisanPage extends javax.swing.JFrame {
     }//GEN-LAST:event_salonGoruntuleButonActionPerformed
 
     private void gorevButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gorevButonActionPerformed
-        CalisanGorev cg = new CalisanGorev();
+        CalisanGorev cg = null;
+        try {
+            cg = new CalisanGorev(id);
+        } catch (SQLException ex) {}
         cg.setVisible(true);
     }//GEN-LAST:event_gorevButonActionPerformed
 
