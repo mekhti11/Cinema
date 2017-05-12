@@ -875,18 +875,7 @@ public class SalonCalisan extends javax.swing.JFrame {
        id = (gosterimId-1)*45 + 1;        koltukSahibi(id);
     }//GEN-LAST:event_buton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SalonCalisan(1).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton blackButon;

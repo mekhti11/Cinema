@@ -210,21 +210,7 @@ public class PersonelEkleSil extends javax.swing.JFrame {
         }catch(Exception e){System.out.println(e);}
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new PersonelEkleSil().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(PersonelEkleSil.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField isimTextField;

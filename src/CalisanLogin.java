@@ -189,16 +189,6 @@ public class CalisanLogin extends javax.swing.JFrame {
             return null;
         }
     }
-    
-    public static void main(String args[]) {
-       
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CalisanLogin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeButton;
