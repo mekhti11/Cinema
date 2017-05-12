@@ -97,7 +97,7 @@ public class AdminPage extends javax.swing.JFrame {
                         .addGap(107, 107, 107)
                         .addComponent(gorevButon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
-                        .addComponent(personelButon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(personelButon, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,7 +131,8 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_filmButonActionPerformed
 
     private void gosterimButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gosterimButonActionPerformed
-        // TODO add your handling code here:
+        GosterimEkleSil g = new GosterimEkleSil();
+        g.setVisible(true);
     }//GEN-LAST:event_gosterimButonActionPerformed
 
     private void salonButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salonButonActionPerformed
@@ -148,11 +149,23 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_salonButonActionPerformed
 
     private void personelButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personelButonActionPerformed
-        // TODO add your handling code here:
+        PersonelEkleSil p = null;
+        try {
+            p = new PersonelEkleSil();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        p.setVisible(true);
     }//GEN-LAST:event_personelButonActionPerformed
 
     private void gorevButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gorevButonActionPerformed
-        // TODO add your handling code here:
+        GorevEkle g = null;
+        try {
+            g = new GorevEkle();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        g.setVisible(true);
     }//GEN-LAST:event_gorevButonActionPerformed
     
     private void set() throws SQLException{

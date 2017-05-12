@@ -32,7 +32,7 @@ public class GorevEkle extends javax.swing.JFrame {
         salonComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         jButton1.setText("Gorev Ekle");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
