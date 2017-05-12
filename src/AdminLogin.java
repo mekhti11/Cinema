@@ -13,6 +13,7 @@ public class AdminLogin extends javax.swing.JFrame {
     Statement statement;
     PreparedStatement state ;
     ResultSet result ;
+    int id;
 
 
     public AdminLogin() {
@@ -149,6 +150,13 @@ public class AdminLogin extends javax.swing.JFrame {
 
             if(result.next()){
                 JOptionPane.showMessageDialog(null, "Logged in Succesfully");
+                sql = "SELECT * FROM `Calisan` WHERE `username` = '" + usernameField.getText()+"'";
+                result = statement.executeQuery(sql);
+                if(result.next())
+                    id = (Integer) result.getInt("id");
+                AdminPage up = new AdminPage(id);
+                up.setVisible(true);
+                this.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Invalid Username or password","Acces Denied" , JOptionPane.ERROR_MESSAGE );

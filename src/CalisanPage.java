@@ -230,21 +230,6 @@ public class CalisanPage extends javax.swing.JFrame {
         cg.setVisible(true);
     }//GEN-LAST:event_gorevButonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new CalisanPage(2).setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(CalisanPage.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton gorevButon;
