@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -140,7 +141,7 @@ public class Salon extends javax.swing.JFrame {
         greenButon.setBackground(Color.green);
         blackButon.setBackground(Color.BLACK);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel1.setText("                                    PERDE");
@@ -717,6 +718,10 @@ public class Salon extends javax.swing.JFrame {
 
     private void biletAlButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biletAlButonActionPerformed
         System.out.println(biletSayisi);
+        if(biletSayisi<1){
+            JOptionPane.showMessageDialog(null, "En az 1 tane koltuk secmeniz gerekiyor");
+            return;
+        }
         BankaBilgileri bb = new BankaBilgileri(biletSayisi,koltukid,gosterimId,id);
         this.setVisible(false);
         bb.setVisible(true);

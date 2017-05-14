@@ -113,7 +113,7 @@ public class BiletAl extends javax.swing.JFrame {
 
         jLabel3.setText("Seans Seç");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         String sql;
         final DefaultComboBoxModel filmsName = new DefaultComboBoxModel();

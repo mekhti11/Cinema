@@ -2,7 +2,10 @@ import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -127,7 +130,12 @@ public class UserProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_biletAlButonActionPerformed
 
     private void takvimButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takvimButonActionPerformed
-        JOptionPane.showMessageDialog(null, "Daha Eklenmedi");
+        try {
+            Biletlerim b = new Biletlerim(id);
+            b.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_takvimButonActionPerformed
 
 

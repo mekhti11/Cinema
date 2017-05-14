@@ -63,7 +63,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         toplamFiyatLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(180, 30));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 0, 18)); // NOI18N
