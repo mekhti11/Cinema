@@ -166,8 +166,6 @@ public class Salon extends javax.swing.JFrame {
             }
         }catch(Exception e){System.out.println(e);}
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel1.setText("                                    PERDE");
 

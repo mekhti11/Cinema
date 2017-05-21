@@ -127,8 +127,6 @@ public class BiletAl extends javax.swing.JFrame {
     
         final JComboBox filmSecBox = new JComboBox<>(filmsName);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         filmSecBox.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){

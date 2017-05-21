@@ -13,8 +13,7 @@
         <jar href="Cinema.jar" main="true"/>
     <jar href="lib/mysql-connector-java-5.1.23-bin.jar"/>
 <jar href="lib/javaee-api-7.0.jar"/>
-<jar href="lib/com.sun.mail_1.4.2.jar"/>
 </resources>
-    <application-desc main-class="LoginUye">
+    <application-desc main-class="MainPage">
     </application-desc>
 </jnlp>

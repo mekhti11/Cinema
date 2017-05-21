@@ -34,6 +34,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         this.koltukid = koltukid;
         this.biletSayisi = biletSayisi;
         initComponents();
+        set();
     }
 
     @SuppressWarnings("unchecked")
@@ -63,7 +64,7 @@ public class BankaBilgileri extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         toplamFiyatLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(180, 30));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 0, 18)); // NOI18N
@@ -129,6 +130,8 @@ public class BankaBilgileri extends javax.swing.JFrame {
         });
 
         jLabel13.setText("   X");
+
+        biletFiyatiLabel.setText("20,00");
 
         jLabel15.setText("   =");
 
@@ -234,14 +237,6 @@ public class BankaBilgileri extends javax.swing.JFrame {
         );
 
         pack();
-        biletFiyatiLabel.setText("19,50");
-
-        biletSayisiLabel.setText(Integer.toString(biletSayisi));
-        double d = 19.5*biletSayisi;
-        toplamFiyatLabel.setText(Double.toString(d));
-
-        jTextField1.setDocument(new JTextFieldLimit(16));
-        jTextField2.setDocument(new JTextFieldLimit(3));
     }// </editor-fold>//GEN-END:initComponents
     private void biletAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biletAlActionPerformed
         jTextField1ActionPerformed(evt);
@@ -312,6 +307,17 @@ public class BankaBilgileri extends javax.swing.JFrame {
             b = true;
         }
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void set() {
+        biletFiyatiLabel.setText("19,50");
+
+        biletSayisiLabel.setText(Integer.toString(biletSayisi));
+        double d = 19.5*biletSayisi;
+        toplamFiyatLabel.setText(Double.toString(d));
+
+        jTextField1.setDocument(new JTextFieldLimit(16));
+        jTextField2.setDocument(new JTextFieldLimit(3));
+    }
 
 
     public class JTextFieldLimit extends PlainDocument {
