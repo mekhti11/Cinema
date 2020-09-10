@@ -1,3 +1,3 @@
 # CINEMANIA
-## Cinema Bilgi Sistemi
+## Cinema Information System
 
